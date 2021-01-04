@@ -1,28 +1,28 @@
 <template>
-  <a-config-provider :locale="locale">
-    <div id="app">
-      <router-view/>
-    </div>
-  </a-config-provider>
+  <Main :initDta="msg"></Main>
 </template>
 
 <script>
-import { domTitle, setDocumentTitle } from '@/utils/domUtil'
-import { i18nRender } from '@/locales'
+import Main from "./components/Main";
 
 export default {
-  data () {
+  data() {
     return {
+      msg: '淦淦淦淦淦淦'
     }
   },
-  computed: {
-    locale () {
-      // 只是为了切换语言时，更新标题
-      const { title } = this.$route.meta
-      title && (setDocumentTitle(`${i18nRender(title)} - ${domTitle}`))
-
-      return this.$i18n.getLocaleMessage(this.$store.getters.lang).antLocale
-    }
+  components: {
+    Main
   }
 }
 </script>
+
+<style>
+body {
+  background-color: #000;
+}
+.record_model {
+  box-sizing: content-box
+}
+
+</style>
